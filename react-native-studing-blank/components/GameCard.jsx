@@ -8,18 +8,25 @@ import {
   Text,
   View,
 } from 'react-native';
+import { styled } from 'nativewind';
+
+// const StyledView = styled(View);
+// const StyledImage = styled(Image);
+// const StyledText = styled(Text);
+// const StyledPressable = styled(Pressable);
 
 export const GameCard = ({ game }) => {
   return (
     <View
-      key={game.slug}
-      style={styles.card}>
+      className="bg-gray-300 p-3 rounded-lg m-4"
+      key={game.slug}>
       <Image
         source={{ uri: game.image }}
         style={styles.image}
       />
       <Text style={styles.title}>{game.title}</Text>
       <Text style={styles.score}>{game.score}</Text>
+      <Text style={styles.description}>{game.description.slice(0,200)}...</Text>
       <Pressable
         style={styles.details}
         onPress={() => console.log('Pressed')}>
